@@ -1,0 +1,10 @@
+streamlit
+pdfplumber
+fpdf
+langchain-ollama
+langchain-community
+sentence-transformers
+faiss-cpu
+pandas
+pytesseract
+pdf2image
