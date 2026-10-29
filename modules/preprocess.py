@@ -90,22 +90,61 @@ def extract_text(pdf_path: str, return_pages: bool = False) -> Union[str, List[D
 
 
 def _extract_page_ocr(pdf_path: str, page_number: int) -> str:
-    """Helper function to perform OCR on a single PDF page."""
-    try:
-        from pdf2image import convert_from_path
-        import pytesseract
+    """Helper function to perform OCR on a single PDF page.
 
-        images = convert_from_path(
-            pdf_path,
-            first_page=page_number,
-            last_page=page_number,
-            dpi=200
-        )
-        if images:
-            return pytesseract.image_to_string(images[0])
+    Attempts pypdfium2 rendering to avoid external Poppler dependencies,
+    and uses pytesseract or EasyOCR to extract text.
+    """
+    pil_image = None
+
+    # 1. Try rendering page via pypdfium2 (bundled binaries, no Poppler needed)
+    try:
+        import pypdfium2 as pdfium
+        doc = pdfium.PdfDocument(pdf_path)
+        page = doc[page_number - 1]
+        pil_image = page.render(scale=2).to_pil()
+        doc.close()
+    except Exception:
+        pass
+
+    # 2. Fallback to pdf2image if pypdfium2 was unavailable
+    if pil_image is None:
+        try:
+            from pdf2image import convert_from_path
+            images = convert_from_path(
+                pdf_path,
+                first_page=page_number,
+                last_page=page_number,
+                dpi=200
+            )
+            if images:
+                pil_image = images[0]
+        except Exception:
+            pass
+
+    if pil_image is None:
+        return ""
+
+    # 3. Try pytesseract if tesseract binary is on system PATH
+    try:
+        import pytesseract
+        text = pytesseract.image_to_string(pil_image)
+        if text and len(text.strip()) > 20:
+            return text
+    except Exception:
+        pass
+
+    # 4. Fallback to EasyOCR (pure python/torch, runs anywhere without external binaries)
+    try:
+        import easyocr
+        import numpy as np
+        reader = easyocr.Reader(["en"], gpu=False, verbose=False)
+        lines = reader.readtext(np.array(pil_image), detail=0)
+        if lines:
+            return "\n".join(lines)
     except Exception as e:
-        # OCR might fail if tesseract binary or poppler is not on system PATH
-        print(f"[preprocess:OCR] Notice: OCR fallback skipped for page {page_number} ({e})")
+        print(f"[preprocess:OCR] Notice: EasyOCR fallback failed on page {page_number}: {e}")
+
     return ""
 
 

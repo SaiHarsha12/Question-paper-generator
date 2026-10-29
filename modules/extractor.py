@@ -50,13 +50,18 @@ def extract_course_structure(pdf_path: str) -> Dict[str, Any]:
             if tables:
                 all_tables.extend(tables)
 
+    # Automatic OCR fallback if document has no text layer (scanned physical photocopy or screenshot)
+    if not text_all.strip():
+        from modules.preprocess import extract_text
+        text_all = extract_text(pdf_path)
+
     # 1. Extract Course Outcomes (COs) from tables and text
     cos = _extract_course_outcomes(text_all, all_tables)
 
     # 2. Extract Units from table-based course plans
     table_units = _extract_table_course_plan(all_tables)
 
-    # 3. Extract Units from text headings (UNIT 1..5, MODULE I..V)
+    # 3. Extract Units from text headings (UNIT 1..5, MODULE I..V, UNT-1..5)
     heading_units = _extract_heading_units(text_all)
 
     # Prioritize: if heading units found, use them; if table plan has units, merge/use them
@@ -83,8 +88,8 @@ def extract_course_structure(pdf_path: str) -> Dict[str, Any]:
 
 
 def _extract_heading_units(text: str) -> Dict[str, List[str]]:
-    """Extract units from document text using UNIT/MODULE heading patterns."""
-    pattern = r"(?:UNIT|MODULE)[\s\-–—]*([0-9]+|[IVXLCDM]+)\b"
+    """Extract units from document text using UNIT/MODULE/UNT heading patterns."""
+    pattern = r"(?:UNIT|MODULE|UNT)[\s\-–—]*([0-9]+|[IVXLCDM]+)\b"
     matches = list(re.finditer(pattern, text, re.I))
 
     units: Dict[str, List[str]] = {}
@@ -103,7 +108,7 @@ def _extract_heading_units(text: str) -> Dict[str, List[str]]:
         clean_subtopics: List[str] = []
         for s in subtopics:
             s = re.sub(r"\s+", " ", s).strip()
-            if len(s) > 3 and not s.lower().startswith("introduction"):
+            if len(s) > 3 and not re.match(r"(?i)^(?:total\s+lecture|contact\s+hrs|credits|cie|see)", s):
                 clean_subtopics.append(s)
 
         if not clean_subtopics:
@@ -204,9 +209,12 @@ def _extract_course_outcomes(text: str, tables: List[List[List[Optional[str]]]])
 
     # 2. Text-based regex search fallback if tables didn't yield COs
     if len(cos) < 2:
-        pattern = r"(?i)\b(CO\s*[1-6])\b\s*[:\-–—]\s*([^\n\r]+(?:\n(?!\s*(?:CO\s*[1-6]|PO\s*\d|Text\s*Book))[^\n\r]+)*)"
+        pattern = r"(?i)\b(C[O0L]\s*[1-6L])\b\s*[:\-–—]?\s*([^\n\r]+(?:\n(?!\s*(?:C[O0L]\s*[1-6L]|PO\s*\d|Text\s*Book|Reference|Hrs))[^\n\r]+)*)"
         for match in re.finditer(pattern, text):
-            co_key = match.group(1).replace(" ", "").upper()
+            raw_key = match.group(1).upper().replace(" ", "")
+            # Normalize common OCR confusions like C01 -> CO1, COL -> CO1
+            co_num = "1" if raw_key.endswith("L") else raw_key[-1]
+            co_key = f"CO{co_num}"
             desc = re.sub(r"\s+", " ", match.group(2)).strip()
             if co_key not in cos and len(desc) > 5:
                 cos[co_key] = desc
