@@ -267,7 +267,15 @@ with tab_generator:
         with open(path, "wb") as f:
             f.write(pdf_file.read())
 
-        course_data = get_unit_concepts(path, return_full=True)
+        # Cache syllabus extraction in session_state to avoid repeating OCR on subsequent interactions
+        if "parsed_pdf_name" not in st.session_state or st.session_state.parsed_pdf_name != pdf_file.name:
+            with st.spinner("🔍 Analyzing syllabus structure & running OCR if needed... Please wait a moment."):
+                course_data = get_unit_concepts(path, return_full=True)
+            st.session_state.parsed_course_data = course_data
+            st.session_state.parsed_pdf_name = pdf_file.name
+        else:
+            course_data = st.session_state.parsed_course_data
+
         units = course_data.get("units", {})
         extracted_cos = course_data.get("cos", {})
 
