@@ -1,0 +1,5 @@
+Approach,Accuracy,Macro_Precision,Macro_Recall,Macro_F1
+Rule-Based (Keywords),1.0,1.0,1.0,1.0
+TF-IDF + Logistic Regression,0.8333,0.835,0.8333,0.8289
+Sentence-BERT + Logistic Regression,0.6667,0.6839,0.6667,0.6719
+Zero-Shot LLM (Ollama),0.4762,0.5931,0.4762,0.4337

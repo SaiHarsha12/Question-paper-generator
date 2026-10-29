@@ -1,0 +1,44 @@
+{
+  "course_code": "24AM7PCLLM",
+  "course_name": "Natural Language Processing for LLM",
+  "semester": "VII",
+  "branch": "Artificial Intelligence and Machine Learning",
+  "cos": {
+    "CO1": "Apply the various concepts and techniques on the input in the model to process and interpret the data.",
+    "CO2": "Analyze the natural language problems using appropriate language modeling and computational approaches to identify linguistic patterns and contextual relationships.",
+    "CO3": "Evaluate LLM adaptation and enhancement techniques to improve language understanding and generation.",
+    "CO4": "Design, develop and demonstrate LLM-based solutions for real-world applications in teams."
+  },
+  "co_po_matrix": {
+    "CO1": {
+      "PO1": 3,
+      "PSO3": 3
+    },
+    "CO2": {
+      "PO2": 3,
+      "PSO3": 3
+    },
+    "CO3": {
+      "PO3": 2,
+      "PO4": 3,
+      "PSO3": 3
+    },
+    "CO4": {
+      "PO3": 3,
+      "PO4": 3,
+      "PO5": 3,
+      "PO8": 2,
+      "PO9": 2,
+      "PSO3": 3
+    }
+  },
+  "bloom_co_prior": {
+    "remember": "CO1",
+    "understand": "CO1",
+    "apply": "CO1",
+    "analyze": "CO2",
+    "evaluate": "CO3",
+    "create": "CO4"
+  }
+}
+

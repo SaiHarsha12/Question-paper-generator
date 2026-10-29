@@ -8,3 +8,7 @@ faiss-cpu
 pandas
 pytesseract
 pdf2image
+nltk
+matplotlib
+seaborn
+scikit-learn

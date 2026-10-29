@@ -1,5 +1,6 @@
 venv/
 __pycache__/
 data/uploads/*
+data/index_store/
 *.pdf
 .DS_Store

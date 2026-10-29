@@ -1,0 +1,63 @@
+[
+  {
+    "id": "TC1",
+    "name": "Tokenization & Preprocessing (Standard Text)",
+    "unit": "UNIT-1",
+    "subtopic": "Byte-Pair Encoding and WordPiece Tokenization",
+    "difficulty": "Easy",
+    "target_bloom": "Understand",
+    "question_type": "theory",
+    "case_type": "standard_syllabus",
+    "description": "Standard digital text syllabus covering foundational NLP subword tokenization.",
+    "context": "Byte-Pair Encoding (BPE) and WordPiece are subword tokenization algorithms designed to mitigate the out-of-vocabulary (OOV) problem in language models. BPE starts with individual characters and iteratively merges the most frequent pairs of symbols until a predetermined vocabulary size is achieved. WordPiece builds language models based on maximizing the likelihood of the training data."
+  },
+  {
+    "id": "TC2",
+    "name": "Self-Attention & Transformer Architecture",
+    "unit": "UNIT-2",
+    "subtopic": "Scaled Dot-Product Self-Attention and Multi-Head Projections",
+    "difficulty": "Moderate",
+    "target_bloom": "Analyze",
+    "question_type": "theory",
+    "case_type": "standard_syllabus",
+    "description": "Moderate difficulty technical analysis of multi-head attention.",
+    "context": "In the Transformer architecture, scaled dot-product attention computes compatibility between queries (Q) and keys (K) normalized by the square root of key dimension dk, then computes weighted sum over values (V). Multi-head attention projects queries, keys, and values into h subspaces to allow joint representation of information from different positions and linguistic relationships."
+  },
+  {
+    "id": "TC3",
+    "name": "Parameter-Efficient Fine-Tuning (Numerical & Theory)",
+    "unit": "UNIT-3",
+    "subtopic": "LoRA Matrix Rank Decomposition and QLoRA Quantization",
+    "difficulty": "Hard",
+    "target_bloom": "Evaluate",
+    "question_type": "numerical",
+    "case_type": "standard_syllabus",
+    "description": "Hard difficulty numerical parameter analysis of low-rank adapter matrices.",
+    "context": "Low-Rank Adaptation (LoRA) reduces trainable parameter counts during fine-tuning by decomposing weight updates into two low-rank matrices A and B of rank r << min(d, k), such that W = W0 + (B * A) * (alpha / r). In QLoRA, base model weights are quantized to 4-bit NormalFloat (NF4) with double quantization, drastically reducing GPU VRAM while preserving full fine-tuning perplexity."
+  },
+  {
+    "id": "TC4",
+    "name": "Autonomous Lesson Plan (Table-Style Course Plan)",
+    "unit": "UNIT-4",
+    "subtopic": "Chain-of-Thought Prompting and Tool-Augmented LLM Agents",
+    "difficulty": "Moderate",
+    "target_bloom": "Apply",
+    "question_type": "theory",
+    "case_type": "table_course_plan",
+    "description": "Extracted from table-style lesson plans where Unit numbers are in dedicated columns without UNIT headings.",
+    "context": "Chain-of-Thought (CoT) prompting encourages large language models to break down complex multi-step reasoning problems into intermediate rationale steps. Tool-augmented agents integrate external API tools (e.g., calculators, search engines, vector databases) with LLM generation via ReAct frameworks, enabling real-time verification and factual reasoning."
+  },
+  {
+    "id": "TC5",
+    "name": "Multi-Modal Course Syllabus (Scanned-PDF OCR Fallback)",
+    "unit": "UNIT-5",
+    "subtopic": "Constitutional AI, RLHF, and Alignment Guardrails",
+    "difficulty": "Hard",
+    "target_bloom": "Create",
+    "question_type": "theory",
+    "case_type": "scanned_ocr",
+    "description": "Simulates scanned legacy department syllabus pages requiring OCR image extraction.",
+    "context": "Constitutional AI eliminates human feedback during the reinforcement learning phase by using a set of explicit behavioral principles and rules to critique and revise LLM responses. Reinforcement Learning from Human Feedback (RLHF) utilizes reward models trained on pairwise human preference rankings to optimize policy weights via Proximal Policy Optimization (PPO), ensuring safe, helpful, and harmless generations."
+  }
+]
+

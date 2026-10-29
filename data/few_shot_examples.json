@@ -1,0 +1,86 @@
+{
+  "remember": [
+    {
+      "subtopic": "OSI Reference Model",
+      "question": "Define the Open Systems Interconnection (OSI) reference model and list all seven layers in their hierarchical order from lowest to highest, stating the fundamental responsibility of each layer."
+    },
+    {
+      "subtopic": "Symmetric Cryptography",
+      "question": "State the core definition of symmetric-key cryptography. List any four standard symmetric cipher algorithms and identify the key sizes supported by AES."
+    },
+    {
+      "subtopic": "TCP Three-Way Handshake",
+      "question": "Define connection establishment in TCP. List the sequence of control flags (SYN, ACK) exchanged during the 3-way handshake process and identify the socket states."
+    }
+  ],
+  "understand": [
+    {
+      "subtopic": "Distance Vector Routing",
+      "question": "Explain the working mechanism of the Distance Vector Routing algorithm using the Bellman-Ford equation. Describe the count-to-infinity problem and how split horizon with poison reverse mitigates it."
+    },
+    {
+      "subtopic": "Tokenization and Lemmatization in NLP",
+      "question": "Describe the difference between stemming and lemmatization in natural language preprocessing. Explain how morphological analysis using WordNet produces linguistically valid root forms."
+    },
+    {
+      "subtopic": "Congestion Control in TCP",
+      "question": "Discuss in detail the four interdependent congestion control mechanisms employed by TCP: Slow Start, Congestion Avoidance, Fast Retransmit, and Fast Recovery. Provide a neat cwnd versus time graph."
+    }
+  ],
+  "apply": [
+    {
+      "subtopic": "Dijkstra's Shortest Path Algorithm",
+      "question": "Solve the single-source shortest path problem for a given weighted network topology with 6 nodes (A through F). Illustrate each step in a tabular trace showing tentative distances and permanent labels."
+    },
+    {
+      "subtopic": "RSA Cryptosystem",
+      "question": "Demonstrate the RSA encryption and decryption mechanism. Given prime numbers p = 11, q = 13, and encryption key e = 7, compute the private key d and encrypt the plaintext message M = 9."
+    },
+    {
+      "subtopic": "Subnetting and CIDR",
+      "question": "Apply Classless Inter-Domain Routing (CIDR) principles to divide the IP address block 192.168.10.0/24 into four equal subnets. Calculate the subnet mask, network address, broadcast address, and usable host range for each subnet."
+    }
+  ],
+  "analyze": [
+    {
+      "subtopic": "TCP versus UDP Protocols",
+      "question": "Differentiate between TCP and UDP protocols based on connection state, error recovery, flow control, and transmission overhead. Compare their suitability for real-time video conferencing versus critical financial data transfer."
+    },
+    {
+      "subtopic": "Dense Semantic Embeddings vs Sparse TF-IDF",
+      "question": "Compare dense semantic vector embeddings (Sentence-BERT) with sparse lexical representations (TF-IDF) in information retrieval. Analyze their computational complexity, vocabulary mismatch limitations, and performance on out-of-vocabulary words."
+    },
+    {
+      "subtopic": "IPv4 vs IPv6 Header Architectures",
+      "question": "Analyze the structural differences between IPv4 and IPv6 packet headers. Contrast how fragmentation, checksum verification, and option handling are implemented in each architecture to improve routing efficiency."
+    }
+  ],
+  "evaluate": [
+    {
+      "subtopic": "Public Key Infrastructure and Digital Certificates",
+      "question": "Critique the security vulnerabilities inherent in centralized Certificate Authority (CA) architectures. Justify whether decentralized trust models, such as Web of Trust or blockchain-anchored PKI, provide superior resilience against man-in-the-middle attacks."
+    },
+    {
+      "subtopic": "Stop-and-Wait vs Sliding Window Flow Control",
+      "question": "Evaluate the channel utilization efficiency of the Stop-and-Wait protocol compared to Go-Back-N and Selective Repeat sliding window protocols over a high-bandwidth satellite link. Justify your conclusion with mathematical throughput derivations."
+    },
+    {
+      "subtopic": "Dense Vector Search vs Hybrid Lexical-Neural Retrieval",
+      "question": "Assess the limitations of relying purely on dense vector similarity search (FAISS IndexFlatIP) for technical curriculum domains. Justify whether a hybrid retrieval pipeline combining reciprocal rank fusion with BM25 yields superior retrieval precision."
+    }
+  ],
+  "create": [
+    {
+      "subtopic": "Enterprise Network Security Architecture",
+      "question": "Design an end-to-end multi-tier network security architecture for a university campus intranet. Formulate the firewall rules, demilitarized zone (DMZ) placement, VPN gateway, and intrusion detection system (IDS) topology with a comprehensive architectural diagram."
+    },
+    {
+      "subtopic": "RAG Question Paper Generation System",
+      "question": "Formulate the complete architectural pipeline of a Retrieval-Augmented Generation (RAG) system for automated examination paper synthesis. Design the document ingestion, sentence-aware chunking, vector indexing, contextual prompt formatting, and multi-metric evaluation subsystems."
+    },
+    {
+      "subtopic": "Fault-Tolerant Distributed Consensus Protocol",
+      "question": "Design a lightweight consensus algorithm suitable for resource-constrained IoT mesh networks. Formulate the state transition diagram, leader election mechanism, and message exchange protocol to achieve Byzantine fault tolerance."
+    }
+  ]
+}

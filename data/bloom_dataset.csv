@@ -1,0 +1,211 @@
+question,level
+Define the term operating system and list its four primary management functions.,Remember
+State Amdahl law for parallel speedup in multicore processing systems.,Remember
+List the seven layers of the OSI reference model in sequential order.,Remember
+Define what is meant by a primary key and foreign key in relational databases.,Remember
+State the Nyquist theorem for maximum data rate of a noiseless channel.,Remember
+List four standard scheduling algorithms used in modern CPU management.,Remember
+Define deadlocks and state the four necessary Coffman conditions for deadlocks.,Remember
+List the three main types of machine learning paradigms with one example each.,Remember
+"Define what an IP address is and identify the default subnet masks for Class A, B, and C.",Remember
+State Bayes theorem and define prior probability and posterior probability.,Remember
+List the control flags present in the standard TCP header.,Remember
+"Define precision, recall, and F1-score in classification evaluation.",Remember
+State the principle of locality of reference in memory hierarchies.,Remember
+List the ACID properties of database transactions.,Remember
+Define what is meant by overfitting and underfitting in neural networks.,Remember
+State the Shannon channel capacity theorem for noisy communication channels.,Remember
+List four types of network topologies and state their connection characteristics.,Remember
+Define supervised learning and list three widely used classification algorithms.,Remember
+State Little law in queueing theory and explain what each term denotes.,Remember
+List the essential components of an artificial neuron in a perceptron model.,Remember
+"Define what a socket is and identify the port numbers for HTTP, HTTPS, and SSH.",Remember
+State the difference between lossy and lossless data compression.,Remember
+List the key assumptions made by the Naive Bayes classification algorithm.,Remember
+Define what is meant by regular expressions and finite automata.,Remember
+State the role of the program counter and instruction register in CPU architecture.,Remember
+List the different types of transmission media used in telecommunication.,Remember
+Define the term hyperparameter and list three hyperparameters in neural networks.,Remember
+State the objective of the PageRank algorithm in web search engines.,Remember
+List the core components of the von Neumann computer architecture.,Remember
+Define the term cipher and list two classical substitution ciphers.,Remember
+State the definition of an eigenvalue and eigenvector for a square matrix.,Remember
+List the advantages and disadvantages of star topology in networking.,Remember
+"Define the concept of epoch, batch size, and iterations in model training.",Remember
+State the difference between RAM and ROM memory technologies.,Remember
+List the standard activation functions commonly used in deep neural networks.,Remember
+Explain how virtual memory is implemented using paging and segmentation techniques.,Understand
+Describe the working mechanism of the Dijkstra shortest path algorithm in routing.,Understand
+Discuss in detail how backpropagation updates weights in a multilayer feedforward neural network.,Understand
+Explain the difference between process and thread execution within an operating system.,Understand
+Describe the three-way handshake connection establishment and teardown sequence in TCP.,Understand
+Explain the concept of gradient descent and describe how learning rate affects convergence.,Understand
+Discuss how CSMA/CD protocol detects and resolves collisions in Ethernet networks.,Understand
+Describe the architecture of the Transformer model and explain self-attention.,Understand
+Explain the working principle of convolutional neural networks and the role of pooling layers.,Understand
+Describe how the domain name system (DNS) resolves hierarchical domain names to IP addresses.,Understand
+Explain the mechanism of stop-and-wait flow control and why sliding window is more efficient.,Understand
+Describe how decision trees perform recursive splitting using entropy and information gain.,Understand
+Discuss in detail the difference between symmetric and asymmetric key cryptographic systems.,Understand
+"Explain the concept of tokenization, stemming, and lemmatization in NLP pipelines.",Understand
+Describe how distance-vector routing functions and explain the count-to-infinity problem.,Understand
+Explain how recurrent neural networks maintain hidden states across sequential time steps.,Understand
+Discuss how database normalization up to BCNF eliminates update and deletion anomalies.,Understand
+Describe the working of the link-state routing protocol and how link-state packets are flooded.,Understand
+Explain how cross-entropy loss function penalizes incorrect classification probabilities.,Understand
+Discuss the concept of paging and how translation lookaside buffers (TLB) accelerate address translation.,Understand
+Describe the role of attention mechanisms in overcoming the bottleneck of seq2seq models.,Understand
+Explain the functioning of the Address Resolution Protocol (ARP) in local area networks.,Understand
+Discuss how dropout regularization prevents co-adaptation of feature detectors in deep networks.,Understand
+Describe the difference between preemptive and non-preemptive CPU scheduling policies.,Understand
+Explain how vector space models and cosine similarity measure document semantic relevance.,Understand
+Discuss the operation of public key infrastructure (PKI) and digital certificate authorities.,Understand
+Describe how word2vec skip-gram architecture learns continuous vector representations of words.,Understand
+Explain the role of firewalls and intrusion detection systems in enterprise perimeter defense.,Understand
+Discuss how random forest ensembles improve predictive accuracy over single decision trees.,Understand
+Describe the OSI reference model layers and explain data encapsulation and decapsulation.,Understand
+Explain the concept of word embeddings and how contextual embeddings differ from static embeddings.,Understand
+Discuss how dynamic host configuration protocol (DHCP) dynamically allocates IP configurations.,Understand
+Describe how autoencoders perform unsupervised dimensionality reduction and feature learning.,Understand
+Explain the working mechanism of Diffie-Hellman cryptographic key exchange protocol.,Understand
+Discuss how transfer learning and pretraining enable rapid convergence on downstream NLP tasks.,Understand
+Solve the single-source shortest path problem for the given weighted graph using Dijkstra algorithm.,Apply
+Calculate the effective memory access time given TLB hit ratio of 90% and memory access latency.,Apply
+Apply CIDR subnetting to divide 192.168.1.0/24 into four subnets accommodating at least 50 hosts each.,Apply
+"Demonstrate the RSA encryption algorithm with primes p=7, q=11, e=13 for message value M=5.",Apply
+Calculate the information gain for splitting an attribute given the initial entropy and subset distributions.,Apply
+Compute the forward pass activations and cross-entropy loss for a 2-layer perceptron with given weights.,Apply
+Apply the Banker algorithm to determine if the current resource allocation state is safe from deadlock.,Apply
+Solve for the optimal decision boundary of a linear Support Vector Machine with four training data points.,Apply
+Demonstrate how CRC-32 detects single-bit and burst transmission errors using polynomial division.,Apply
+"Calculate the precision, recall, specificity, and F1-score from a given 2x2 confusion matrix.",Apply
+Apply min-max normalization and z-score standardization to transform the given feature vector.,Apply
+Calculate the convolution output matrix given a 5x5 input image and a 3x3 kernel with stride 1 and padding 0.,Apply
+"Demonstrate how tokenization, stopword removal, and Porter stemming process the given paragraph.",Apply
+Solve the CPU scheduling problem using Round Robin with time quantum q=4 and calculate turnaround time.,Apply
+Apply Bayes rule to calculate the probability of disease given a positive medical diagnostic test.,Apply
+Calculate the TF-IDF matrix for a vocabulary of four terms across a corpus of three documents.,Apply
+Demonstrate the Bellman-Ford algorithm step-by-step to detect negative weight cycles in a directed graph.,Apply
+Apply k-means clustering to assign five 2D data points to two clusters across two iterative steps.,Apply
+Calculate the maximum throughput of a pure ALOHA and slotted ALOHA channel with given frame generation rate.,Apply
+"Compute the self-attention weights for a sequence of three token embedding vectors using Q, K, V matrices.",Apply
+Demonstrate how Diffie-Hellman computes a shared secret key using prime p=23 and base g=5.,Apply
+Calculate the page fault count for the given page reference string using LRU and FIFO algorithms.,Apply
+Apply gradient descent to update a linear regression weight given learning rate 0.01 and mean squared error.,Apply
+Compute the Hamming code parity bits to encode the 4-bit data word 1011 for single-error correction.,Apply
+Calculate the BLEU score for a candidate translation against two reference sentences.,Apply
+Apply the Apriori algorithm to find frequent itemsets given a minimum support threshold of 40%.,Apply
+Demonstrate how an IP packet is fragmented when passing through a network MTU of 1500 bytes.,Apply
+Calculate the Euclidean and cosine distance between two 4-dimensional normalized word vectors.,Apply
+Solve the optimal binary search tree problem for five keys with given access probabilities.,Apply
+Apply PCA to compute the covariance matrix and identify the first principal component of two features.,Apply
+Calculate the TCP throughput over a high-bandwidth delay product link with 0.1% packet loss.,Apply
+Demonstrate how the Viterbi algorithm determines the most likely sequence of hidden states in an HMM.,Apply
+Apply the Levenshtein edit distance dynamic programming algorithm to align two string sequences.,Apply
+Compute the output dimensions and parameter count of a convolutional neural network layer.,Apply
+Demonstrate the execution of quicksort on the given array and count the total number of comparisons.,Apply
+Compare and contrast the performance trade-offs of TCP versus UDP in real-time multimedia streaming.,Analyze
+Analyze the time and space complexity of merge sort compared to quicksort in worst-case scenarios.,Analyze
+Differentiate between dense semantic vector embeddings and sparse bag-of-words TF-IDF representations.,Analyze
+Contrast symmetric ciphers with asymmetric ciphers regarding key distribution and computational speed.,Analyze
+Analyze the effect of vanishing gradients in deep recurrent neural networks versus LSTM architectures.,Analyze
+Compare distance-vector routing with link-state routing in terms of convergence speed and routing overhead.,Analyze
+Differentiate between L1 and L2 regularization and analyze how each impacts model feature sparsity.,Analyze
+Contrast monolithic operating system kernels with microkernel designs regarding fault isolation and latency.,Analyze
+"Analyze the trade-offs between batch gradient descent, mini-batch gradient descent, and stochastic GD.",Analyze
+Compare IPv4 and IPv6 header architectures and analyze why IPv6 eliminates packet fragmentation at routers.,Analyze
+Differentiate between generative models and discriminative models in machine learning with examples.,Analyze
+Contrast hard clustering with soft probabilistic clustering and analyze their sensitivity to outliers.,Analyze
+Analyze the computational bottleneck of quadratic self-attention in standard Transformers for long sequences.,Analyze
+Compare optimistic concurrency control with two-phase locking in distributed transaction databases.,Analyze
+"Differentiate between word-level, subword-level (BPE), and character-level tokenization in NLP models.",Analyze
+Contrast circuit-switched networks with packet-switched networks in terms of link utilization and delay.,Analyze
+Analyze why naive Bayes remains robust even when the strong conditional independence assumption is violated.,Analyze
+Compare relational database management systems with NoSQL key-value stores for distributed scale.,Analyze
+Differentiate between precision-focused and recall-focused retrieval in medical search versus web search.,Analyze
+Analyze the security trade-offs between stateless session tokens (JWT) and server-side stateful sessions.,Analyze
+Contrast feedforward neural networks with convolutional neural networks in spatial translation invariance.,Analyze
+Analyze the causes of thrashing in virtual memory systems and explain how working set models prevent it.,Analyze
+Compare zero-shot prompting with few-shot in-context learning in large language models.,Analyze
+Differentiate between process synchronization using semaphores versus conditional variables in monitors.,Analyze
+Analyze why cross-validation provides an unbiased estimate of generalization error over train-test split.,Analyze
+Contrast HTTP/1.1 persistent connections with HTTP/2 multiplexed streams and binary framing.,Analyze
+Analyze the bias-variance trade-off in polynomial regression models as model complexity increases.,Analyze
+Compare cosine similarity with Euclidean distance in high-dimensional text embedding spaces.,Analyze
+Differentiate between symmetric multiprocessing (SMP) and asymmetric multiprocessing architectures.,Analyze
+Analyze the impact of different pooling strategies (max pooling vs average pooling) in CNN architectures.,Analyze
+Contrast dense retrieval (FAISS) with hybrid BM25 lexical search in domain-specific terminology recall.,Analyze
+Analyze the vulnerability of distance vector protocols to routing loops and evaluate split horizon solutions.,Analyze
+"Compare BLEU, ROUGE, and METEOR evaluation metrics in machine translation and summarization.",Analyze
+Differentiate between preemptive priority scheduling and non-preemptive priority scheduling starvation.,Analyze
+Analyze how multi-head attention allows a Transformer to attend to information from different representation subspaces.,Analyze
+Critique the suitability of using pure accuracy to evaluate classification performance on highly imbalanced datasets.,Evaluate
+Justify whether centralized Certificate Authority PKI architectures provide sufficient security against state-level adversaries.,Evaluate
+Assess the limitations of relying exclusively on dense vector similarity search without lexical BM25 filtering.,Evaluate
+Evaluate the channel utilization efficiency of Stop-and-Wait versus Selective Repeat on satellite links.,Evaluate
+Justify the choice between deploying a fine-tuned open-source model versus calling a proprietary API for enterprise data.,Evaluate
+Critique the security vulnerabilities of using WEP encryption compared to modern WPA3 wireless standards.,Evaluate
+Assess the computational feasibility of deploying deep Transformer models on resource-constrained edge IoT devices.,Evaluate
+Justify whether WordNet lemmatization is superior to heuristic Porter stemming for semantic retrieval applications.,Evaluate
+Evaluate the effectiveness of k-fold cross-validation when applied to non-stationary financial time-series data.,Evaluate
+Critique the use of mean squared error loss for training binary logistic classification models.,Evaluate
+Justify whether optimistic concurrency control outperforms pessimistic two-phase locking in read-heavy database workloads.,Evaluate
+Assess the vulnerability of neural network classifiers to adversarial input perturbation attacks.,Evaluate
+Evaluate the ethical implications and hallucinations associated with deploying unconstrained generative LLMs in healthcare.,Evaluate
+Justify why cosine similarity is mathematically preferred over Euclidean distance when comparing normalized dense embeddings.,Evaluate
+Critique the FIFO page replacement algorithm and evaluate whether Belady anomaly makes it impractical for modern OS.,Evaluate
+Assess the security trade-offs of using Diffie-Hellman key exchange without mutual cryptographic authentication.,Evaluate
+Justify whether containerization with Docker provides comparable security isolation to hardware virtualization.,Evaluate
+Evaluate the trade-offs of using Reciprocal Rank Fusion versus weighted score linear combination in hybrid search.,Evaluate
+Critique the BLEU metric as an evaluation benchmark for open-ended creative natural language generation.,Evaluate
+Assess the operational impact of head-of-line blocking in TCP over packet-lossy wireless networks compared to QUIC.,Evaluate
+Justify the selection of a Random Forest over a Deep Neural Network for tabular customer churn prediction.,Evaluate
+Evaluate the fault tolerance of Raft consensus protocol when network partitioning separates the cluster majority.,Evaluate
+Critique the assumption of term independence in Naive Bayes and assess its impact on probability calibration.,Evaluate
+Justify why transfer learning from foundation models has largely replaced training NLP models from scratch.,Evaluate
+Assess the environmental carbon footprint and compute cost of pretraining dense billion-parameter language models.,Evaluate
+Evaluate the robustness of k-means clustering when clusters have arbitrary non-spherical geometric shapes.,Evaluate
+Justify the use of subword tokenization (BPE) over word-level vocabularies in multilingual language modeling.,Evaluate
+Critique the security of using SHA-1 and MD5 for cryptographic digital signatures in modern protocols.,Evaluate
+Assess the architectural trade-offs of microservices versus monolithic systems for low-latency financial exchanges.,Evaluate
+Justify whether sentence-aware chunking outperforms naive fixed-character chunking in RAG retrieval precision.,Evaluate
+Evaluate the effectiveness of dropout regularization compared to weight decay L2 penalty in preventing overfitting.,Evaluate
+Critique the use of Perplexity as the sole evaluation metric for assessing task-specific LLM generation quality.,Evaluate
+Assess whether blockchain distributed ledgers can effectively replace traditional relational databases in banking.,Evaluate
+Justify the choice between zero-shot prompting and few-shot in-context learning for specialized technical reasoning.,Evaluate
+Evaluate the risk of catastrophic forgetting in neural networks when fine-tuning on a specialized domain dataset.,Evaluate
+"Design an end-to-end network security architecture for a university campus intranet including firewalls, DMZ, and IDS.",Create
+Formulate the complete architectural pipeline of a Retrieval-Augmented Generation (RAG) system for question paper generation.,Create
+Design a fault-tolerant distributed consensus protocol suitable for resource-constrained IoT sensor mesh networks.,Create
+Formulate a comprehensive exam question paper generation algorithm that guarantees balanced coverage across all Bloom levels.,Create
+Design a hybrid lexical-semantic information retrieval pipeline combining FAISS IndexFlatIP with BM25 inverted indexes.,Create
+Formulate a deep learning architecture combining convolutional and recurrent layers for real-time video captioning.,Create
+Design a zero-trust network access (ZTNA) model for enterprise remote workers accessing cloud-hosted microservices.,Create
+Formulate a novel preprocessing workflow that extracts and normalizes structured syllabus concepts from scanned PDFs.,Create
+Design an automated evaluation framework to assess generated exam questions for factual accuracy and linguistic fluency.,Create
+Formulate a lightweight federated learning protocol that trains diagnostic models across hospitals without sharing patient data.,Create
+Design a scalable database schema and caching layer for a high-throughput social media feed serving millions of requests.,Create
+Formulate an adaptive CPU scheduling algorithm that dynamically adjusts time quantum based on interactive user latency.,Create
+"Design a multi-modal transformer architecture that jointly embeds text documents, diagrams, and mathematical formulas.",Create
+Formulate a self-correcting prompt engineering pipeline using Chain-of-Thought verification to eliminate LLM hallucinations.,Create
+Design a congestion control protocol for satellite mega-constellations accounting for variable propagation delays.,Create
+Formulate a curriculum-aligned question recommendation system based on knowledge graph representations of student mastery.,Create
+Design an intrusion detection system leveraging unsupervised autoencoders to identify novel zero-day network attacks.,Create
+Formulate a distributed key management protocol for end-to-end encrypted group messaging without a centralized server.,Create
+Design an end-to-end continuous integration and deployment pipeline incorporating automated unit and regression testing.,Create
+Formulate a reinforcement learning reward function for an autonomous vehicle navigating dense urban intersections.,Create
+Design a decentralized identity verification architecture using public key cryptography and verifiable digital credentials.,Create
+Formulate a semantic text chunking algorithm that dynamically optimizes chunk boundaries based on embedding cohesion.,Create
+Design an enterprise disaster recovery architecture guaranteeing zero data loss (RPO=0) across geographically remote regions.,Create
+Formulate a contrastive learning objective function to train dense domain-specific sentence embeddings on academic syllabi.,Create
+Design a rate-limiting and DDoS mitigation system capable of inspecting and filtering millions of HTTP requests per second.,Create
+Formulate a self-attention pruning strategy that compresses large transformer models while preserving generative accuracy.,Create
+Design an autonomous microgrid energy management system that optimizes renewable power distribution using game theory.,Create
+Formulate a privacy-preserving synthetic tabular data generation pipeline using generative adversarial networks (GANs).,Create
+Design an end-to-end speech recognition and translation system for low-resource Indian languages using deep learning.,Create
+Formulate a multi-criteria course outcome (CO) to program outcome (PO) mapping algorithm for autonomous colleges.,Create
+Design a real-time anomaly detection pipeline for financial transactions utilizing streaming graph neural networks.,Create
+Formulate a dynamic prompt optimization framework that automatically searches for top-performing few-shot exemplars.,Create
+Design an edge-computing gateway architecture that performs local video object detection and uploads only metadata.,Create
+Formulate a multi-agent debate architecture where diverse LLM agents collaborate to verify and refine university exam questions.,Create
+Design an end-to-end academic credential verification platform using cryptographically signed tamper-proof digital seals.,Create

@@ -7,9 +7,9 @@ class ExamPaperPDF(FPDF):
         self.first_page = True
         self.in_unit = False  
         self.w_qno = 12
-        self.w_q = 118
+        self.w_q = 113
         self.w_co = 15
-        self.w_po = 15
+        self.w_po = 20
         self.w_m = 15
 
     def header(self):
@@ -114,7 +114,14 @@ class ExamPaperPDF(FPDF):
 
         self.set_font("helvetica", "", 9)
         self.cell(self.w_co, h, co, 1, align="C")
-        self.cell(self.w_po, h, po, 1, align="C")
+
+        # Auto-adjust font size for PO column to cleanly fit multiple POs (e.g. "PO3, PO4")
+        po_clean = self.clean(po)
+        po_font_size = 7 if len(po_clean) > 12 else (8 if len(po_clean) > 7 else 9)
+        self.set_font("helvetica", "", po_font_size)
+        self.cell(self.w_po, h, po_clean, 1, align="C")
+
+        self.set_font("helvetica", "", 9)
         self.cell(self.w_m, h, marks, 1, ln=True, align="C")
 
     def or_row(self):
