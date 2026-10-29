@@ -12,6 +12,7 @@ This module extracts structured syllabus content from academic PDFs:
 """
 
 from typing import Dict, List, Any, Optional, Union
+import os
 import re
 import pdfplumber
 
@@ -220,7 +221,7 @@ def get_unit_concepts(
     """Backward-compatible wrapper to extract course units or full structure.
 
     Args:
-        pdf_path: Path to the syllabus PDF.
+        pdf_path: Path to the syllabus PDF, or raw syllabus text string.
         return_full: If True, returns {'units': {...}, 'cos': {...}}.
             If False (default), returns the legacy unit dictionary:
             {'UNIT-1': [...], 'UNIT-2': [...]}.
@@ -228,6 +229,13 @@ def get_unit_concepts(
     Returns:
         Legacy unit dictionary or full dictionary depending on return_full.
     """
+    if not os.path.exists(pdf_path):
+        # Raw text string fallback
+        units = _extract_heading_units(pdf_path)
+        cos = _extract_course_outcomes(pdf_path, [])
+        structure = {"units": units, "cos": cos}
+        return structure if return_full else structure["units"]
+
     structure = extract_course_structure(pdf_path)
     if return_full:
         return structure

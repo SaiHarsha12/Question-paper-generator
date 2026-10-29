@@ -1,6 +1,23 @@
+# Environments and Virtualenv
 venv/
+.venv/
+env/
+
+# Python Cache & Bytecode
 __pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# User Uploads and Dynamic Indexes
 data/uploads/*
 data/index_store/
-*.pdf
+
+# Operating System Metadata
 .DS_Store
+Thumbs.db
+
+# Generated PDFs (Keep curated sample papers in samples/)
+*.pdf
+!samples/*.pdf

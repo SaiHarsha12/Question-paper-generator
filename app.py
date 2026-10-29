@@ -66,8 +66,84 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-logo_path = os.path.join(BASE_DIR, "218-2188840_bms-college-of-engineering-bangalore-bms-college-of-engineering-logo.png")
+logo_path = os.path.join(BASE_DIR, "assets", "logo.png")
 
+# ==============================================================================
+# SIDEBAR CONTROLS: RAG, PROMPT, MODEL, DIFFICULTY & KNOWLEDGE BASE
+# ==============================================================================
+with st.sidebar:
+    if os.path.exists(logo_path):
+        st.image(logo_path, width=160)
+
+    st.title("⚙️ RAG Engine Controls")
+    st.markdown("**Course**: 24AM7PCLLM | BMSCE")
+
+    generation_mode = st.selectbox(
+        "Generation Architecture",
+        ["RAG (Context-Augmented Retrieval)", "Baseline (No Retrieval)"],
+        index=0,
+        help="'RAG' retrieves ground-truth concepts from the vector store. 'Baseline' prompts the LLM directly without retrieval."
+    )
+
+    prompt_style_ui = st.selectbox(
+        "Prompt Engineering Strategy",
+        ["Few-Shot (In-Context Exemplars)", "Zero-Shot (Direct Instruction)", "CoT Check (Two-Stage Self-Verification)"],
+        index=0,
+        help="'Few-shot' injects 3 Bloom exemplars. 'CoT Check' runs a secondary verification call to audit Bloom alignment."
+    )
+
+    selected_model = st.selectbox(
+        "Local Ollama Model",
+        ["llama3", "mistral", "phi3"],
+        index=0,
+        help="Configurable local open-weights LLM running via Ollama."
+    )
+
+    difficulty = st.selectbox(
+        "Exam Difficulty Level",
+        ["Easy", "Moderate", "Hard"],
+        index=1,
+        help="Target cognitive difficulty level for question formulation."
+    )
+
+    top_k = st.slider(
+        "Top-k Retrieved Chunks",
+        min_value=1,
+        max_value=8,
+        value=3,
+        step=1,
+        help="Number of context chunks to retrieve from the FAISS KnowledgeBase in RAG mode."
+    )
+
+    st.markdown("---")
+    st.subheader("📚 Reference Knowledge Base")
+    st.caption("Upload textbook / notes PDFs to index into FAISS (`data/reference/`)")
+    ref_uploads = st.file_uploader(
+        "Upload Reference Documents",
+        type=["pdf"],
+        accept_multiple_files=True,
+        help="Reference textbooks or unit notes to supplement syllabus retrieval."
+    )
+
+    if ref_uploads:
+        os.makedirs("data/reference", exist_ok=True)
+        saved_count = 0
+        for ref_file in ref_uploads:
+            ref_dest = os.path.join("data", "reference", ref_file.name)
+            if not os.path.exists(ref_dest):
+                with open(ref_dest, "wb") as f:
+                    f.write(ref_file.read())
+                saved_count += 1
+        if saved_count > 0:
+            st.success(f"Added {saved_count} reference document(s) to knowledge base.")
+            if "kb" in st.session_state:
+                del st.session_state["kb"]
+
+    existing_refs = glob.glob("data/reference/*.pdf")
+    st.info(f"Active Reference Docs: {len(existing_refs)} file(s) available")
+
+
+# Main Banner
 with st.container():
     col_title, col_logo = st.columns([5, 1])
     with col_title:
@@ -141,51 +217,29 @@ tab_generator, tab_evaluation, tab_observations = st.tabs([
 # ==============================================================================
 with tab_generator:
     # Course Metadata Inputs
-    col1, col2, col3 = st.columns(3)
+    col1, col2 = st.columns(2)
     with col1:
         branch = st.text_input("Branch", value=course_cfg.get("branch", "Artificial Intelligence and Machine Learning"))
         code = st.text_input("Course Code", value=course_cfg.get("course_code", "24AM7PCLLM"), placeholder="e.g. 24AM7PCLLM")
     with col2:
         course = st.text_input("Course Name", value=course_cfg.get("course_name", "Natural Language Processing for LLM"), placeholder="e.g. Natural Language Processing for LLM")
         sem = st.text_input("Semester", value=course_cfg.get("semester", "VII"), placeholder="e.g. VII")
-    with col3:
-        difficulty = st.selectbox("Difficulty Level", ["Easy", "Moderate", "Hard"], index=1)
 
-    # NLP & LLM Configuration Section
-    with st.expander("⚙️ Advanced NLP, RAG & Cognitive Level Configuration (24AM7PCLLM)", expanded=True):
-        nlp_col1, nlp_col2 = st.columns(2)
-        with nlp_col1:
-            generation_mode = st.selectbox(
-                "Generation Architecture",
-                ["RAG (Context-Augmented Retrieval)", "Baseline (No Retrieval)"],
-                index=0,
-                help="'RAG' retrieves ground-truth concepts from the vector store. 'Baseline' prompts the LLM directly without retrieval."
-            )
-            prompt_style_ui = st.selectbox(
-                "Prompt Engineering Strategy",
-                ["Few-Shot (In-Context Exemplars)", "Zero-Shot (Direct Instruction)", "CoT Check (Two-Stage Self-Verification)"],
-                index=0,
-                help="'Few-shot' injects 3 Bloom exemplars. 'CoT Check' runs a secondary verification call to audit Bloom alignment."
-            )
-        with nlp_col2:
-            selected_model = st.selectbox(
-                "Local Ollama Model",
-                ["llama3", "mistral", "phi3"],
-                index=0,
-                help="Configurable local open-weights LLM running via Ollama."
-            )
-            bloom_dist_choice = st.selectbox(
-                "Target Bloom Cognitive Level Distribution",
-                [
-                    "Balanced Mix (All 6 Levels: Remember to Create)",
-                    "Standard Autonomous College Scheme (Understand, Apply, Analyze)",
-                    "Higher-Order Cognitive Focus (Analyze, Evaluate, Create)",
-                    "Foundational Technical Focus (Remember, Understand, Apply)",
-                    "Custom Cognitive Level Selection"
-                ],
-                index=0,
-                help="Specifies which cognitive levels to target across generated exam questions."
-            )
+    # Cognitive Level & Active Pipeline Configuration
+    with st.expander("🎯 Cognitive Level & Pipeline Configuration (Bloom Distribution)", expanded=False):
+        st.markdown(f"**Active Mode**: `{generation_mode}` | **Prompt**: `{prompt_style_ui}` | **Model**: `{selected_model}` | **Top-k**: `{top_k}` | **Difficulty**: `{difficulty}`")
+        bloom_dist_choice = st.selectbox(
+            "Target Bloom Cognitive Level Distribution",
+            [
+                "Balanced Mix (All 6 Levels: Remember to Create)",
+                "Standard Autonomous College Scheme (Understand, Apply, Analyze)",
+                "Higher-Order Cognitive Focus (Analyze, Evaluate, Create)",
+                "Foundational Technical Focus (Remember, Understand, Apply)",
+                "Custom Cognitive Level Selection"
+            ],
+            index=0,
+            help="Specifies which cognitive levels to target across generated exam questions."
+        )
 
         # Resolve target Bloom distribution
         if bloom_dist_choice == "Custom Cognitive Level Selection":
@@ -328,7 +382,7 @@ with tab_generator:
                                     mode=gen_mode,
                                     prompt_style=active_style,
                                     model_name=selected_model,
-                                    k=3
+                                    k=top_k
                                 )
                                 candidate_q = clean_question(gen_output.get("question", ""))
                                 fmt_result = format_check(candidate_q)

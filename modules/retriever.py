@@ -225,6 +225,10 @@ class TFIDFRetriever:
         self.tfidf_matrix = self.vectorizer.fit_transform(texts)
         return len(self.chunks)
 
+    def fit(self, chunks: List[Dict[str, Any]]) -> int:
+        """Convenience alias for build_from_chunks."""
+        return self.build_from_chunks(chunks)
+
     def build(self, pdf_paths: List[str], chunk_size: int = 500, overlap: int = 100) -> int:
         """Extract and index text chunks from PDF documents."""
         all_chunks: List[Dict[str, Any]] = []
@@ -384,7 +388,7 @@ def compare_retrievers(
     def _mean(vals: List[float]) -> float:
         return round(float(np.mean(vals)), 4) if vals else 0.0
 
-    return {
+    out = {
         "k": k,
         "total_queries_evaluated": len(queries),
         "dense_embeddings_all_MiniLM_L6_v2": {
@@ -399,6 +403,9 @@ def compare_retrievers(
         },
         "query_level_observations": per_query_results
     }
+    out["dense"] = out["dense_embeddings_all_MiniLM_L6_v2"]
+    out["tfidf"] = out["sparse_lexical_TFIDF"]
+    return out
 
 
 def _score_retrieval(
