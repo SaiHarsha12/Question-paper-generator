@@ -2,7 +2,10 @@ from langchain_ollama import OllamaLLM
 import random
 import re
 
-llm = OllamaLLM(model="llama3", streaming=False)
+try:
+    llm = OllamaLLM(model="llama3", streaming=False)
+except Exception:
+    llm = None
 
 def generate_exam_question(subtopic, bloom_level, question_type, difficulty):
     if isinstance(subtopic, list):
@@ -14,9 +17,8 @@ def generate_exam_question(subtopic, bloom_level, question_type, difficulty):
         "Easy": "Use straightforward terminology. Ask for basic definitions and fundamental working.",
         "Moderate": "Ask for comparisons, internal mechanisms, and logical derivations.",
         "Hard": "Frame complex scenarios, critical evaluations, and multi-step problems."
-    }[difficulty]
+    }.get(difficulty, "Ask for conceptual clarity and system working.")
     
-
     if any(k in subtopic_lower for k in ["algorithm", "method", "process", "working"]):
         verb = random.choice(["Explain the working of", "Illustrate the mechanism of", "Demonstrate the steps of"])
         requirement = "Provide a neat diagram and pseudocode."
@@ -49,5 +51,15 @@ STRICT INSTRUCTIONS:
 OUTPUT ONLY THE QUESTION TEXT.
 """
 
-    response = llm.generate([prompt])
-    return response.generations[0][0].text.strip()
+    if llm is not None:
+        try:
+            response = llm.generate([prompt])
+            text = response.generations[0][0].text.strip()
+            if text:
+                return text
+        except Exception as e:
+            print(f"[rag_engine] Ollama generation error: {e}. Using rule-based fallback.")
+
+    if question_type == "numerical":
+        return f"{verb} {subtopic}. Formulate a {difficulty.lower()}-level numerical problem demonstrating its calculation and analyze the result."
+    return f"{verb} {subtopic} in detail. {requirement} Justify its relevance in practical engineering systems."

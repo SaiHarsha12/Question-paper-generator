@@ -1,6 +1,6 @@
 streamlit
 pdfplumber
-fpdf
+fpdf2
 langchain-ollama
 langchain-community
 sentence-transformers
